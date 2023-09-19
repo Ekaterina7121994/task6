@@ -4,7 +4,7 @@ import javax.swing.plaf.synth.SynthOptionPaneUI;
 
 public class StatsService {
     public int minSales(long[] sales) {
-        int minMonth = 0; //
+        int minMonth = 0;
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] <= sales[minMonth]) {
                 minMonth = i;
@@ -42,21 +42,23 @@ public class StatsService {
 
     public int monthsAboveAverage(long[] sales) {
         int aboveAverage = 0;
-        int a = averageSales(sales);
-        for (int i = 0; i < sales.length; i++)
-            if (sales[i] > a) {
+        int averageSales = averageSales(sales);
+        for (int i = 0; i < sales.length; i++) {
+            if (sales[i] > averageSales) {
                 aboveAverage = aboveAverage + 1;
             }
+        }
         return aboveAverage;
     }
 
     public int monthLessThanAverage(long[] sales) {
         int lessThanAverage = 0;
-        int a = averageSales(sales);
-        for (int i = 0; i < sales.length; i++)
-            if (sales[i] > a) {
+        int averageSales = averageSales(sales);
+        for (int i = 0; i < sales.length; i++) {
+            if (sales[i] > averageSales) {
                 lessThanAverage = lessThanAverage + 1;
             }
+        }
         return lessThanAverage;
     }
 }
