@@ -3,7 +3,7 @@ package ru.netology.task6.stats;
 import javax.swing.plaf.synth.SynthOptionPaneUI;
 
 public class StatsService {
-    public long minSales(long[] sales) {  //минимальные продажи
+    public int minSales(long[] sales) {  //минимальные продажи
         int minMonth = 0;
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] <= sales[minMonth]) {
@@ -31,8 +31,8 @@ public class StatsService {
         return sum;
     }
 
-    public int averageSales(long[] sales) {  //средний объем продаж
-        int sum = 0;
+    public long averageSales(long[] sales) {  //средний объем продаж
+        long sum = 0;
         for (int i = 0; i < sales.length; i++) {
             sum += sales[i];
         }
