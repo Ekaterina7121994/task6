@@ -3,7 +3,7 @@ package ru.netology.task6.stats;
 import javax.swing.plaf.synth.SynthOptionPaneUI;
 
 public class StatsService {
-    public int minSales(long[] sales) {
+    public long minSales(long[] sales) {  //минимальные продажи
         int minMonth = 0;
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] <= sales[minMonth]) {
@@ -13,7 +13,7 @@ public class StatsService {
         return minMonth + 1;
     }
 
-    public int maxSales(long[] sales) {
+    public int maxSales(long[] sales) {  //максимальные продажи
         int maxMonth = 0;
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] >= sales[maxMonth]) {
@@ -23,40 +23,39 @@ public class StatsService {
         return maxMonth + 1;
     }
 
-    public int saleAmount(long[] sales) {
-        int sum = 0;
+    public long saleAmount(long[] sales) { //сумма продажи
+        long sum = 0;
         for (int i = 0; i < sales.length; i++) {
             sum += sales[i];
         }
         return sum;
     }
 
-    public int averageSales(long[] sales) {
+    public int averageSales(long[] sales) {  //средний объем продаж
         int sum = 0;
         for (int i = 0; i < sales.length; i++) {
             sum += sales[i];
         }
-        int averageValue = sum / sales.length;
-        return averageValue;
+        return sum / sales.length;
     }
 
-    public int monthsAboveAverage(long[] sales) {
+    public int monthsAboveAverage(long[] sales) {  //месяцев выше среднего
+        long average = averageSales(sales);
         int aboveAverage = 0;
-        int averageSales = averageSales(sales);
-        for (int i = 0; i < sales.length; i++) {
-            if (sales[i] > averageSales) {
-                aboveAverage = aboveAverage + 1;
+        for (long sale : sales) {
+            if (sale > average) {
+                aboveAverage++;
             }
         }
         return aboveAverage;
     }
 
-    public int monthLessThanAverage(long[] sales) {
+    public int monthLessThanAverage(long[] sales) { //месяц Меньше, чем в Среднем
+        long average = averageSales(sales);
         int lessThanAverage = 0;
-        int averageSales = averageSales(sales);
-        for (int i = 0; i < sales.length; i++) {
-            if (sales[i] > averageSales) {
-                lessThanAverage = lessThanAverage + 1;
+        for (long sale : sales) {
+            if (sale < average) {
+                lessThanAverage++;
             }
         }
         return lessThanAverage;

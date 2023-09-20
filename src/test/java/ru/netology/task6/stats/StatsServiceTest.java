@@ -50,11 +50,12 @@ public class StatsServiceTest {
     }
 
     @Test
-    public void monthsLessThanAverage() { //количество месяцев, в которых продажи были ниже среднего
+    public void monthLessThanAverage() { //количество месяцев, в которых продажи были ниже среднего
         StatsService stats = new StatsService();
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         long expectedBelowAverage = 5;
-        long actualBelowAverage = stats.monthsAboveAverage(sales);
+        long actualBelowAverage = stats.monthLessThanAverage(sales);
         Assertions.assertEquals(expectedBelowAverage, actualBelowAverage);
     }
+
 }
